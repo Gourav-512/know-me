@@ -1,0 +1,113 @@
+@-webkit-keyframes mask-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(129px);
+  }
+}
+@keyframes mask-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(129px);
+  }
+}
+@-webkit-keyframes mask-inner-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-129px);
+  }
+}
+@keyframes mask-inner-move {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-129px);
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #89cb66;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.focus {
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 0.1rem;
+  line-height: 0.8;
+  position: relative;
+  width: 200px;
+}
+.focus:before {
+  content: "I'm A FULL STACK DEVELOPER";
+  filter: blur(3px);
+}
+.focus:after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: calc(100% + 8px);
+  top: -4px;
+  left: 0;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  -webkit-animation: mask-move 1s linear infinite alternate;
+          animation: mask-move 1s linear infinite alternate;
+}
+.focus--mask {
+  overflow: hidden;
+  position: absolute;
+  width: 100px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #89cb66;
+  -webkit-animation: mask-move 1s linear infinite alternate;
+          animation: mask-move 1s linear infinite alternate;
+}
+.focus--mask-inner {
+  -webkit-animation: mask-inner-move 1s linear infinite alternate;
+          animation: mask-inner-move 1s linear infinite alternate;
+}
+
+.credits {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 200;
+  letter-spacing: 0.05rem;
+  font-style: italic;
+  text-align: center;
+}
+.credits a {
+  color: white;
+  text-decoration: none;
+  font-weight: normal;
+}
+.credits a:hover {
+  text-decoration: underline;
+}
